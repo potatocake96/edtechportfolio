@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Simon Dass EdTech Consultancy</title>
+  <meta name="description" content="Get in touch to discuss how teacher-first EdTech can transform your school's workflows. Book a discovery call or request a demo.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">Simon Dass</a>
+      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="navbar-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" style="min-height: 50vh;">
+    <div class="container text-center">
+      <h1 data-animate>Get in Touch</h1>
+      <p style="font-size: 1.25rem; color: var(--color-text-secondary); max-width: 800px; margin: 0 auto;" data-animate>
+        Ready to explore how teacher-first EdTech can transform your school's workflows? Let's start a conversation.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="card" style="padding: var(--spacing-lg);" data-animate>
+          <h2 style="margin-bottom: var(--spacing-md);">Send a Message</h2>
+          <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
+            Whether you're interested in consulting services, tool demos, or just want to discuss how EdTech can support your school, I'd love to hear from you. I typically respond within 24-48 hours.
+          </p>
+          
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name" class="form-label">Name *</label>
+              <input type="text" id="name" name="name" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input type="email" id="email" name="email" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label for="school" class="form-label">School / Organisation</label>
+              <input type="text" id="school" name="school" class="form-input">
+            </div>
+
+            <div class="form-group">
+              <label for="role" class="form-label">Role</label>
+              <input type="text" id="role" name="role" class="form-input" placeholder="e.g., Principal, Curriculum Coordinator, Teacher">
+            </div>
+
+            <div class="form-group">
+              <label for="interest" class="form-label">What are you most interested in?</label>
+              <select id="interest" name="interest" class="form-select">
+                <option value="">Please select</option>
+                <option value="ai-workflows">AI workflow automation for teachers</option>
+                <option value="trackme-ed">TrackMe-Ed (attendance/behaviour/wellbeing dashboards)</option>
+                <option value="adjustme">AdjustMe (NCCD & personalised adjustments)</option>
+                <option value="classwork-ed">ClassWork-Ed (evidence & competency-based learning)</option>
+                <option value="leadership-strategy">Leadership strategy & digital implementation</option>
+                <option value="custom-tools">Custom AI or web tools for schools</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">Message *</label>
+              <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+
+        <!-- Alternative Contact Methods -->
+        <div style="margin-top: var(--spacing-lg); display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-md);">
+          <div class="card" style="text-align: center; padding: var(--spacing-md);" data-animate>
+            <h3 class="card-title" style="font-size: 1.25rem;">Email</h3>
+            <p style="margin: var(--spacing-sm) 0;">
+              <a href="mailto:simon.dass.1996@gmail.com" style="font-size: 1.1rem;">simon.dass.1996@gmail.com</a>
+            </p>
+          </div>
+          <div class="card" style="text-align: center; padding: var(--spacing-md);" data-animate>
+            <h3 class="card-title" style="font-size: 1.25rem;">Response Time</h3>
+            <p style="margin: var(--spacing-sm) 0; color: var(--color-text-secondary);">
+              Typically within 24-48 hours
+            </p>
+          </div>
+          <div class="card" style="text-align: center; padding: var(--spacing-md);" data-animate>
+            <h3 class="card-title" style="font-size: 1.25rem;">Location</h3>
+            <p style="margin: var(--spacing-sm) 0; color: var(--color-text-secondary);">
+              Australia-wide<br>Remote & on-site available
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section section-alt parallax-section">
+    <div class="parallax-bg"></div>
+    <div class="container parallax-content text-center">
+      <h2 data-animate>Ready to Get Started?</h2>
+      <p style="font-size: 1.25rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate>
+        Book a discovery call to discuss how teacher-first EdTech can transform your school's workflows.
+      </p>
+      <a href="mailto:simon.dass.1996@gmail.com?subject=Discovery Call Request" class="btn" data-animate>Book a Discovery Call</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Simon Dass</h3>
+        <p>Teacher • Developer • Musician</p>
+        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
+        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <p><a href="about.html">About</a></p>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="tools.html">Tools</a></p>
+        <p><a href="case-studies.html">Case Studies</a></p>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p><a href="contact.html">Get in Touch</a></p>
+        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
