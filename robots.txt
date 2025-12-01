@@ -4,6 +4,6 @@ Allow: /
 # Disallow admin or system paths (none currently used)
 # Disallow: /admin/
 
-Sitemap: https://simondass.site/sitemap.xml
+Sitemap: https://edtechconsult.services/sitemap.xml
 
 
