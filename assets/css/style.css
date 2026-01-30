@@ -12,8 +12,10 @@
   --color-bg-secondary: #f8f8f8;      /* Light grey */
   --color-text-primary: #000000;      /* Pure black */
   --color-text-secondary: #555555;    /* Dark grey */
-  --color-accent-red: #000000;        /* Black for accents */
-  --color-accent-red-dark: #333333;   /* Dark grey */
+  --color-accent: #2D6A6A;            /* Muted teal highlight */
+  --color-accent-dark: #245858;       /* Darker teal (hover) */
+  --color-accent-red: #2D6A6A;        /* Form errors / legacy accent */
+  --color-accent-red-dark: #245858;
   --color-border: #e0e0e0;            /* Light border */
   --color-status-green: #000000;      /* Black status */
   
@@ -114,7 +116,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-text-secondary);
+  color: var(--color-accent);
 }
 
 /* ============================================
@@ -246,8 +248,8 @@ a:hover {
 
 .navbar-menu a:hover,
 .navbar-menu a.active {
-  color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-text-primary);
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-accent);
   padding-bottom: calc(var(--spacing-xs) - 1px);
 }
 
@@ -394,9 +396,9 @@ a:hover {
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  border: 1px solid var(--color-text-primary);
+  border: 1px solid var(--color-accent);
   background-color: transparent;
-  color: var(--color-text-primary);
+  color: var(--color-accent);
   cursor: pointer;
   transition: all var(--transition-normal);
   border-radius: 0;
@@ -404,19 +406,21 @@ a:hover {
 }
 
 .btn:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-accent);
   color: var(--color-bg-primary);
+  border-color: var(--color-accent-dark);
   transform: translateY(-2px);
 }
 
 .btn-outline {
-  border-color: var(--color-text-primary);
-  color: var(--color-text-primary);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn-outline:hover {
-  background-color: var(--color-text-primary);
+  background-color: var(--color-accent);
   color: var(--color-bg-primary);
+  border-color: var(--color-accent-dark);
 }
 
 /* ============================================
@@ -434,8 +438,8 @@ a:hover {
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-text-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(45, 106, 106, 0.18);
 }
 
 .card-title {
@@ -506,8 +510,8 @@ a:hover {
 
 .tool-card:hover {
   transform: translateY(-4px);
-  border-color: var(--color-text-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(45, 106, 106, 0.18);
 }
 
 .tool-card-image {
@@ -563,7 +567,7 @@ a:hover {
   background-color: transparent;
   padding: var(--spacing-lg);
   border-radius: 0;
-  border-left: 2px solid var(--color-text-primary);
+  border-left: 2px solid var(--color-accent);
   margin-bottom: var(--spacing-lg);
   position: relative;
 }
@@ -623,8 +627,8 @@ a:hover {
 .form-textarea:focus,
 .form-select:focus {
   outline: none;
-  border-color: var(--color-text-primary);
-  box-shadow: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 .form-textarea {
@@ -663,11 +667,10 @@ body {
 }
 
 .footer-content {
-  max-width: min(92vw, 1800px);
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
+  width: 100%;
+  padding: 0 var(--spacing-lg);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: var(--spacing-lg);
 }
 
@@ -719,9 +722,9 @@ body {
 
 .footer-bottom p {
   margin: 0;
-  max-width: min(92vw, 1800px);
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
   color: rgba(255, 255, 255, 0.9);
 }
 
