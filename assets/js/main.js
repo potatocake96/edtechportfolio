@@ -242,5 +242,107 @@
   // Update on page load
   document.addEventListener('DOMContentLoaded', updateActiveNavLink);
 
+  // ============================================
+  // HERO HEADLINE: STAGGERED WORD REVEAL (index only)
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroHeadline = document.querySelector('[data-hero-headline]');
+    if (!heroHeadline || heroHeadline.querySelector('.hero-headline-word')) return;
+    const text = heroHeadline.textContent.trim();
+    heroHeadline.textContent = '';
+    const words = text.split(/\s+/);
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.className = 'hero-headline-word';
+      span.setAttribute('aria-hidden', 'true');
+      span.textContent = word;
+      span.style.animationDelay = `${i * 0.12}s`;
+      heroHeadline.appendChild(span);
+    });
+  });
+
+  // ============================================
+  // NAVBAR BRAND TYPEWRITER (Simon Dass)
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    const brand = document.querySelector('.navbar-brand');
+    if (!brand || brand.querySelector('.navbar-brand-typed')) return;
+    const text = brand.textContent.trim();
+    brand.textContent = '';
+    const typedSpan = document.createElement('span');
+    typedSpan.className = 'navbar-brand-typed';
+    typedSpan.setAttribute('aria-hidden', 'true');
+    const cursorSpan = document.createElement('span');
+    cursorSpan.className = 'navbar-brand-cursor';
+    cursorSpan.setAttribute('aria-hidden', 'true');
+    brand.appendChild(typedSpan);
+    brand.appendChild(cursorSpan);
+    let i = 0;
+    function type() {
+      if (i < text.length) {
+        typedSpan.textContent += text[i];
+        i++;
+        setTimeout(type, 90);
+      } else {
+        cursorSpan.classList.add('visible');
+      }
+    }
+    type();
+  });
+
+  // ============================================
+  // SCROLL-TRIGGERED TYPEWRITER FOR SUBHEADINGS
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    const typewriterHeadings = document.querySelectorAll('[data-typewriter]');
+    if (typewriterHeadings.length === 0) return;
+
+    const typewriterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.target.dataset.typewriterDone === 'true') return;
+        entry.target.dataset.typewriterDone = 'true';
+        runHeadingTypewriter(entry.target);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
+
+    typewriterHeadings.forEach((el) => typewriterObserver.observe(el));
+
+    function runHeadingTypewriter(heading) {
+      const text = heading.textContent.trim();
+      heading.textContent = '';
+
+      const typedSpan = document.createElement('span');
+      typedSpan.className = 'typewriter-typed';
+      typedSpan.setAttribute('aria-hidden', 'true');
+
+      const cursorSpan = document.createElement('span');
+      cursorSpan.className = 'typewriter-cursor';
+      cursorSpan.setAttribute('aria-hidden', 'true');
+
+      heading.appendChild(typedSpan);
+      heading.appendChild(cursorSpan);
+
+      let i = 0;
+      const charDelay = 45;
+
+      function type() {
+        if (i < text.length) {
+          typedSpan.textContent += text[i];
+          i++;
+          setTimeout(type, charDelay);
+        } else {
+          cursorSpan.classList.add('visible');
+          setTimeout(() => {
+            cursorSpan.style.animation = 'none';
+            cursorSpan.style.opacity = '0';
+            cursorSpan.style.width = '0';
+            cursorSpan.style.marginLeft = '0';
+          }, 2200);
+        }
+      }
+      type();
+    }
+  });
+
 })();
 
