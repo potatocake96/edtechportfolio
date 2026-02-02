@@ -344,5 +344,72 @@
     }
   });
 
+  // ============================================
+  // ACCORDION
+  // ============================================
+  document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const expanded = trigger.getAttribute('aria-expanded') === 'true';
+      const item = trigger.closest('.accordion-item');
+      const panel = item ? item.querySelector('.accordion-panel') : trigger.nextElementSibling;
+      if (!panel) return;
+
+      trigger.setAttribute('aria-expanded', !expanded);
+      panel.setAttribute('aria-hidden', expanded);
+    });
+  });
+
+  // ============================================
+  // CAROUSEL
+  // ============================================
+  document.querySelectorAll('.carousel').forEach(carousel => {
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const dots = carousel.querySelectorAll('.carousel-dot');
+
+    if (!track || slides.length === 0) return;
+
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(index) {
+      current = Math.max(0, Math.min(index, total - 1));
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === current));
+      if (prevBtn) prevBtn.disabled = current === 0;
+      if (nextBtn) nextBtn.disabled = current === total - 1;
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    goTo(0);
+  });
+
+  // ============================================
+  // EXPAND ACCORDION ON HASH NAVIGATION (case studies)
+  // ============================================
+  function expandAccordionFromHash() {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+    const trigger = target.querySelector('.accordion-trigger');
+    const panel = target.querySelector('.accordion-panel');
+    if (trigger && panel && trigger.getAttribute('aria-expanded') === 'false') {
+      trigger.setAttribute('aria-expanded', 'true');
+      panel.setAttribute('aria-hidden', 'false');
+    }
+  }
+  window.addEventListener('hashchange', expandAccordionFromHash);
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.hash) {
+      setTimeout(expandAccordionFromHash, 100);
+    }
+  });
+
 })();
 
