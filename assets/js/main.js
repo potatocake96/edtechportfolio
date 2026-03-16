@@ -102,6 +102,49 @@
   }
 
   // ============================================
+  // CURSOR HALO ON INTERACTIVE ELEMENTS
+  // ============================================
+  (function initCursorHalo() {
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (prefersReducedMotion && prefersReducedMotion.matches) return;
+
+    const halo = document.createElement('div');
+    halo.className = 'cursor-halo';
+    document.body.appendChild(halo);
+
+    let isActive = false;
+
+    function setActive(active) {
+      if (active === isActive) return;
+      isActive = active;
+      halo.classList.toggle('cursor-halo--active', isActive);
+    }
+
+    // Track pointer position
+    document.addEventListener('pointermove', (event) => {
+      halo.style.left = `${event.clientX}px`;
+      halo.style.top = `${event.clientY}px`;
+    });
+
+    const interactiveSelector = '.btn, .card, .tool-card, .impact-card, .accordion-trigger';
+
+    // Activate halo when hovering interactive elements
+    document.addEventListener('pointerover', (event) => {
+      const target = event.target.closest(interactiveSelector);
+      setActive(Boolean(target));
+    });
+
+    document.addEventListener('pointerout', (event) => {
+      const related = event.relatedTarget && event.relatedTarget.closest
+        ? event.relatedTarget.closest(interactiveSelector)
+        : null;
+      if (!related) {
+        setActive(false);
+      }
+    });
+  })();
+
+  // ============================================
   // SCROLL ANIMATIONS (Fade in on scroll)
   // ============================================
   const observerOptions = {
@@ -342,6 +385,246 @@
       }
       type();
     }
+  });
+
+  // ============================================
+  // ROLE / AUDIENCE VIEW — central logic
+  // ============================================
+  const ROLE_LABELS = { all: 'Everyone', principal: 'Principal', teacher: 'Teacher', it: 'IT / Data lead' };
+  const AUDIENCE_KEY = 'audienceView';
+
+  // Role-specific emojis (dry humor: paperwork, coffee, firewalls…)
+  const ROLE_EMOJIS = {
+    all: ['📚', '✨', '🤝', '📋', '☕', '🔒'],
+    principal: ['📊', '📋', '👔', '📈', '📑', '🔍'],
+    teacher: ['📝', '☕', '✏️', '📚', '🌱', '📄'],
+    it: ['🔒', '🛡️', '⚙️', '💾', '🔐', '📁']
+  };
+
+  function spawnRoleConfetti(audience, originX, originY) {
+    const emojis = ROLE_EMOJIS[audience] || ROLE_EMOJIS.all;
+    const container = document.createElement('div');
+    container.className = 'role-confetti';
+    container.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(container);
+
+    const origin = { x: originX ?? window.innerWidth / 2, y: originY ?? window.innerHeight / 2 };
+    const count = 42;
+
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('span');
+      el.className = 'role-confetti-emoji';
+      el.textContent = emojis[i % emojis.length];
+      el.style.left = origin.x + (Math.random() - 0.5) * 40 + 'px';
+      el.style.top = origin.y + (Math.random() - 0.5) * 40 + 'px';
+      const angle = Math.random() * Math.PI * 2;
+      const force = 220 + Math.random() * 380;
+      const dx = Math.cos(angle) * force;
+      const dy = Math.sin(angle) * force - 120;
+      const rot = (Math.random() - 0.5) * 1800;
+      el.style.setProperty('--confetti-dx', dx + 'px');
+      el.style.setProperty('--confetti-dy', dy + 'px');
+      el.style.setProperty('--confetti-rot', rot + 'deg');
+      el.style.animationDelay = (Math.random() * 0.08) + 's';
+      el.style.animationDuration = (2.0 + Math.random() * 0.6) + 's';
+      container.appendChild(el);
+    }
+
+    setTimeout(() => container.remove(), 3200);
+  }
+
+  function setRole(audience, options) {
+    const fromUser = options?.fromUser === true;
+    if (fromUser) {
+      if (audience === 'all') {
+        document.body.removeAttribute('data-audience-view');
+        sessionStorage.removeItem(AUDIENCE_KEY);
+      } else {
+        document.body.setAttribute('data-audience-view', audience);
+        sessionStorage.setItem(AUDIENCE_KEY, audience);
+      }
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
+      if (!prefersReducedMotion) {
+        const overlay = document.createElement('div');
+        overlay.className = 'role-switch-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(overlay);
+        setTimeout(() => overlay.remove(), 650);
+        spawnRoleConfetti(audience, options?.clickX, options?.clickY);
+      }
+    }
+
+    if (!fromUser) {
+      if (audience === 'all') {
+        document.body.removeAttribute('data-audience-view');
+        sessionStorage.removeItem(AUDIENCE_KEY);
+      } else {
+        document.body.setAttribute('data-audience-view', audience);
+        sessionStorage.setItem(AUDIENCE_KEY, audience);
+      }
+    }
+    updateNavbarRoleIndicator();
+    // Sync audience cards if present
+    document.querySelectorAll('.audience-btn, .audience-card').forEach(b => {
+      b.classList.toggle('active', b.dataset.audience === audience);
+    });
+    // Close navbar dropdown if open
+    const menu = document.getElementById('navbar-role-menu');
+    if (menu) {
+      menu.hidden = true;
+      const btn = document.getElementById('navbar-role-indicator');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    }
+    // Update contact form if present
+    const audienceInput = document.getElementById('audience_view');
+    const contactLabel = document.getElementById('contact-viewing-as');
+    if (audienceInput) audienceInput.value = audience === 'all' ? '' : audience;
+    if (contactLabel) {
+      if (audience !== 'all') {
+        contactLabel.textContent = 'Contacting as: ' + (ROLE_LABELS[audience] || audience);
+        contactLabel.style.display = 'block';
+      } else {
+        contactLabel.style.display = 'none';
+      }
+    }
+  }
+
+  function updateNavbarRoleIndicator() {
+    const el = document.getElementById('navbar-role-indicator');
+    if (!el) return;
+    const view = sessionStorage.getItem(AUDIENCE_KEY) || 'all';
+    el.textContent = 'Viewing as: ' + (ROLE_LABELS[view] || ROLE_LABELS.all);
+  }
+
+  // ============================================
+  // AUDIENCE FILTER + THEME SWITCHER
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Check URL param ?role=principal (etc.)
+    const params = new URLSearchParams(window.location.search);
+    const roleParam = params.get('role');
+    if (roleParam && ['principal', 'teacher', 'it', 'all'].includes(roleParam)) {
+      setRole(roleParam);
+      // Replace URL without reload (optional, keeps URL clean)
+      if (window.history && window.history.replaceState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('role');
+        window.history.replaceState({}, '', url.pathname + (url.search || ''));
+      }
+    } else {
+      // 2. Restore persisted theme on load
+      const saved = sessionStorage.getItem(AUDIENCE_KEY);
+      if (saved && saved !== 'all') {
+        setRole(saved); // Syncs body, cards, navbar, contact form
+      } else {
+        updateNavbarRoleIndicator();
+        // Sync cards to 'all' and contact form
+        document.querySelectorAll('.audience-btn, .audience-card').forEach(b => {
+          b.classList.toggle('active', b.dataset.audience === 'all');
+        });
+        const audienceInput = document.getElementById('audience_view');
+        const contactLabel = document.getElementById('contact-viewing-as');
+        if (audienceInput) audienceInput.value = '';
+        if (contactLabel) contactLabel.style.display = 'none';
+      }
+    }
+
+
+    // 3. Audience cards (index, contact)
+    const filterBtns = document.querySelectorAll('.audience-btn, .audience-card');
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        setRole(btn.dataset.audience || 'all', { fromUser: true, clickX: e.clientX, clickY: e.clientY });
+        // Close role prompt overlay if open
+        const overlay = document.getElementById('role-prompt-overlay');
+        if (overlay?.classList.contains('is-visible')) {
+          overlay.classList.remove('is-visible');
+          overlay.setAttribute('aria-hidden', 'true');
+        }
+      });
+    });
+
+    // 3b. Role prompt overlay — appears 2s after load on index
+    const roleOverlay = document.getElementById('role-prompt-overlay');
+    const isIndexPage = /\/$|\/index\.html$/i.test(window.location.pathname);
+    if (roleOverlay && isIndexPage) {
+      const showOverlay = () => {
+        const view = sessionStorage.getItem(AUDIENCE_KEY) || 'all';
+        roleOverlay.querySelectorAll('.audience-card').forEach(c => {
+          c.classList.toggle('active', c.dataset.audience === view);
+        });
+        roleOverlay.classList.add('is-visible');
+        roleOverlay.setAttribute('aria-hidden', 'false');
+      };
+      const hideOverlay = () => {
+        roleOverlay.classList.remove('is-visible');
+        roleOverlay.setAttribute('aria-hidden', 'true');
+      };
+      setTimeout(showOverlay, 2000);
+      roleOverlay.querySelector('.role-prompt-overlay-backdrop')?.addEventListener('click', hideOverlay);
+    }
+
+    // 4. Navbar role dropdown
+    const roleIndicator = document.getElementById('navbar-role-indicator');
+    const roleMenu = document.getElementById('navbar-role-menu');
+    const roleDropdown = roleIndicator?.closest('.navbar-role-dropdown');
+    if (roleIndicator && roleMenu && roleDropdown) {
+      function closeRoleMenu() {
+        roleMenu.hidden = true;
+        roleIndicator.setAttribute('aria-expanded', 'false');
+        document.removeEventListener('click', outsideClickHandler);
+      }
+      function outsideClickHandler(e) {
+        if (!roleDropdown.contains(e.target)) {
+          closeRoleMenu();
+        }
+      }
+      roleIndicator.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willOpen = roleMenu.hidden;
+        roleMenu.hidden = !willOpen;
+        roleIndicator.setAttribute('aria-expanded', willOpen);
+        if (willOpen) {
+          setTimeout(() => document.addEventListener('click', outsideClickHandler), 0);
+        } else {
+          document.removeEventListener('click', outsideClickHandler);
+        }
+      });
+      roleMenu.querySelectorAll('[role="menuitem"]').forEach(item => {
+        item.addEventListener('click', (e) => {
+          setRole(item.dataset.audience || 'all', { fromUser: true, clickX: e.clientX, clickY: e.clientY });
+          closeRoleMenu();
+        });
+      });
+    }
+  });
+
+  // ============================================
+  // TABS
+  // ============================================
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    if (tabBtns.length === 0 || tabPanels.length === 0) return;
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('aria-controls');
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        tabPanels.forEach(panel => {
+          const isActive = panel.id === targetId;
+          panel.classList.toggle('active', isActive);
+          panel.hidden = !isActive;
+        });
+      });
+    });
   });
 
   // ============================================

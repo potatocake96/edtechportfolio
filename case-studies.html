@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -28,7 +28,18 @@
         <li><a href="services.html">SERVICES</a></li>
         <li><a href="tools.html">TOOLS</a></li>
         <li><a href="case-studies.html" class="active">CASES</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="nav-cta">BOOK A CALL</a></li>
       </ul>
     </div>
   </nav>
@@ -49,8 +60,8 @@
       <div class="card-grid">
         <!-- Case Study 1 -->
         <div class="card" data-animate>
-          <h3 class="card-title">Statewide VCE-VM Curriculum Implementation</h3>
-          <p class="card-content">QA outcomes 2023 · Flexible delivery, authentic assessment across multiple campuses.</p>
+          <h3 class="card-title">VCE-VM Curriculum Implementation</h3>
+          <p class="card-content">Successful QA outcomes · Flexible delivery, authentic assessment across sites.</p>
           <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-top: var(--spacing-sm);">
             <span style="background-color: var(--color-bg-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: var(--color-text-secondary);">Curriculum</span>
             <span style="background-color: var(--color-bg-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: var(--color-text-secondary);">VCE-VM</span>
@@ -61,7 +72,7 @@
 
         <!-- Case Study 2 -->
         <div class="card" data-animate>
-          <h3 class="card-title">Statewide Progress Tracking Tool</h3>
+          <h3 class="card-title">Centralised Progress Tracking Tool</h3>
           <p class="card-content">TrackMe-Ed—centralised data across schools, subjects, time. Better meetings, data-informed decisions.</p>
           <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-top: var(--spacing-sm);">
             <span style="background-color: var(--color-bg-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: var(--color-text-secondary);">Data</span>
@@ -86,7 +97,7 @@
         <!-- Case Study 4 -->
         <div class="card" data-animate>
           <h3 class="card-title">Inclusion with Complex Cohorts</h3>
-          <p class="card-content">3/10 → 7/10 days attendance. Trauma-informed routines for disengaged youth and youth justice students.</p>
+          <p class="card-content">Significant attendance gains. Trauma-informed routines for disengaged youth and youth justice students.</p>
           <div style="display: flex; gap: var(--spacing-xs); flex-wrap: wrap; margin-top: var(--spacing-sm);">
             <span style="background-color: var(--color-bg-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: var(--color-text-secondary);">Inclusion</span>
             <span style="background-color: var(--color-bg-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; color: var(--color-text-secondary);">Engagement</span>
@@ -129,21 +140,21 @@
         <!-- Case Study 1 Detail -->
         <div id="case-study-1" class="card accordion-item" style="margin-bottom: var(--spacing-md); padding: 0;" data-animate>
           <button class="accordion-trigger" aria-expanded="false" aria-controls="case-detail-1" id="case-trigger-1" style="width: 100%; text-align: left; padding: var(--spacing-md) var(--spacing-lg);">
-            <span>Statewide VCE-VM Curriculum Implementation</span>
+            <span>VCE-VM Curriculum Implementation</span>
           </button>
           <div class="accordion-panel" id="case-detail-1" aria-hidden="true" role="region" aria-labelledby="case-trigger-1">
             <div class="accordion-content" style="margin: 0 var(--spacing-lg) var(--spacing-lg);">
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-top: var(--spacing-md); margin-bottom: var(--spacing-xs);">The Challenge</h3>
           <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
-            A multi-campus school network needed quality alternative pathway curriculum that could be delivered flexibly across different contexts while meeting VCE-VM QA requirements. Existing programs were either too rigid or didn't meet compliance standards.
+            Schools with multiple sites needed quality alternative pathway curriculum that could be delivered flexibly across different contexts while meeting VCE-VM QA requirements. Existing programs were either too rigid or didn't meet compliance standards.
           </p>
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">The Solution</h3>
           <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
-            I designed a comprehensive VCE-VM curriculum framework with flexible delivery options, authentic assessment tasks, and trauma-informed approaches. The program included detailed unit plans, assessment rubrics, and implementation guides for each campus.
+            I designed a comprehensive VCE-VM curriculum framework with flexible delivery options, authentic assessment tasks, and trauma-informed approaches. The program included detailed unit plans, assessment rubrics, and implementation guides for each site.
           </p>
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">The Impact</h3>
           <p style="color: var(--color-text-secondary);">
-            The curriculum achieved successful QA outcomes in 2023 and is now used across multiple campuses statewide. Teachers report improved student engagement, and the flexible framework allows each campus to adapt delivery to their specific context while maintaining quality and compliance.
+            The curriculum achieved successful QA outcomes and is now used across multiple sites. Teachers report improved student engagement, and the flexible framework allows each site to adapt delivery to their specific context while maintaining quality and compliance.
           </p>
             </div>
           </div>
@@ -152,7 +163,7 @@
         <!-- Case Study 2 Detail -->
         <div id="case-study-2" class="card accordion-item" style="margin-bottom: var(--spacing-md); padding: 0;" data-animate>
           <button class="accordion-trigger" aria-expanded="false" aria-controls="case-detail-2" id="case-trigger-2" style="width: 100%; text-align: left; padding: var(--spacing-md) var(--spacing-lg);">
-            <span>Statewide Progress Tracking Tool</span>
+            <span>Centralised Progress Tracking Tool</span>
           </button>
           <div class="accordion-panel" id="case-detail-2" aria-hidden="true" role="region" aria-labelledby="case-trigger-2">
             <div class="accordion-content" style="margin: 0 var(--spacing-lg) var(--spacing-lg);">
@@ -166,7 +177,7 @@
           </p>
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">The Impact</h3>
           <p style="color: var(--color-text-secondary);">
-            Meeting efficiency improved significantly, with staff able to access comprehensive student data in seconds rather than hours. Data-informed decision making improved across the network, and the centralised system enabled better tracking of intervention effectiveness over time.
+            Meeting efficiency improved significantly, with staff able to access comprehensive student data in seconds rather than hours. Data-informed decision making improved, and the centralised system enabled better tracking of intervention effectiveness over time.
           </p>
             </div>
           </div>
@@ -204,7 +215,7 @@
             <div class="accordion-content" style="margin: 0 var(--spacing-lg) var(--spacing-lg);">
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-top: var(--spacing-md); margin-bottom: var(--spacing-xs);">The Challenge</h3>
           <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
-            A cohort of disengaged youth and youth justice students had extremely low attendance (3/10 days per fortnight) and complex learning needs. Traditional approaches weren't working, and students were disconnecting from school.
+            A cohort of disengaged youth and youth justice students had very low attendance and complex learning needs. Traditional approaches weren't working, and students were disconnecting from school.
           </p>
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">The Solution</h3>
           <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
@@ -212,7 +223,7 @@
           </p>
           <h3 style="font-size: 1.05rem; color: var(--color-text-primary); margin-bottom: var(--spacing-xs);">The Impact</h3>
           <p style="color: var(--color-text-secondary);">
-            Attendance improved from 3/10 to 7/10 days per fortnight. Students reported feeling more connected to school, and teachers noted improved engagement and participation. The flexible approach allowed students to succeed on their own terms while maintaining academic rigour.
+            Attendance improved significantly. Students reported feeling more connected to school, and teachers noted improved engagement and participation. The flexible approach allowed students to succeed on their own terms while maintaining academic rigour.
           </p>
             </div>
           </div>
@@ -281,29 +292,22 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Simon Dass</h3>
-        <p>Teacher • Developer • Musician</p>
-        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
-        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="tools.html">Tools</a></p>
-        <p><a href="case-studies.html">Case Studies</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="contact.html">Get in Touch</a></p>
-        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
-      </div>
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
-      <p class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
     </div>
   </footer>
 

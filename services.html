@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -20,16 +20,29 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Simon Dass</a>
-      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
+      <a href="index.html" class="navbar-brand">Learning Systems Studio</a>
       <ul class="navbar-menu">
         <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="practice.html">PRACTICE</a></li>
         <li><a href="services.html" class="active">SERVICES</a></li>
-        <li><a href="tools.html">TOOLS</a></li>
-        <li><a href="case-studies.html">CASES</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="systems.html">SYSTEMS</a></li>
+        <li><a href="approach.html">APPROACH</a></li>
+        <li><a href="governance.html">GOVERNANCE</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="nav-cta">BOOK A CALL</a></li>
       </ul>
+      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
 
@@ -231,37 +244,94 @@
     </div>
   </section>
 
-  <!-- Pricing & Packages -->
+  <!-- Engagement Options -->
   <section class="section section-alt" id="pricing">
     <div class="container">
-      <h2 class="text-center" data-animate data-typewriter>Pricing & Packages (AUD)</h2>
-      <p class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
-        Indicative pricing for Australian schools and networks. All amounts are ex‑GST, with tailored quotes available for multi‑campus or network implementations.
+      <h2 class="text-center" data-animate data-typewriter>Engagement Options</h2>
+      <p class="text-center" style="max-width: 900px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
+        Schools typically engage Simon on a flexible consultancy basis, similar to bringing in a specialist educator or consultant
+        to design and implement systems that support teaching teams and leadership.
+      </p>
+      <p class="text-center" style="max-width: 900px; margin: -0.5rem auto var(--spacing-xl); color: var(--color-text-secondary);" data-animate>
+        This allows schools to pilot ideas, improve existing systems, or receive ongoing support without committing to large software contracts.
       </p>
       <div class="card-grid">
+        <!-- Tier 1: Consultation Session -->
         <div class="card" data-animate>
-          <h3 class="card-title">Free 30‑minute AI call</h3>
-          <p class="card-content">Online conversation to understand your context and identify where AI can safely reduce workload without adding noise.</p>
-          <p class="card-content"><strong>Price:</strong> $0 (online)</p>
-          <a href="contact.html" class="btn btn-outline">Book a free call</a>
+          <h3 class="card-title">Consultation Session</h3>
+          <p class="card-content">
+            A focused strategic conversation with school leadership or staff to discuss challenges related to learning adjustments,
+            intervention tracking, teacher workflows, or digital systems.
+          </p>
+          <p class="card-content" style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-xs);"><strong>Example inclusions:</strong></p>
+          <ul class="card-content" style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md); line-height: 1.7;">
+            <li>• reviewing existing systems</li>
+            <li>• identifying workflow challenges</li>
+            <li>• discussing implementation strategies</li>
+            <li>• planning potential pilots or improvements</li>
+          </ul>
+          <p class="card-content"><strong>Pricing:</strong> From $250–$400 per session</p>
         </div>
+
+        <!-- Tier 2: Specialist Implementation Day -->
         <div class="card" data-animate>
-          <h3 class="card-title">Staff professional learning</h3>
-          <p class="card-content">Practical PD on AI workflows, NCCD and inclusion using TrackMe‑Ed, AdjustMe and ClassWork‑Ed.</p>
-          <p class="card-content"><strong>From:</strong> $900 ex‑GST (half‑day online) · $2,200 ex‑GST (full day on‑site, plus travel if required)</p>
-          <a href="contact.html" class="btn btn-outline">Enquire about PD</a>
+          <h3 class="card-title">Specialist Implementation Day</h3>
+          <p class="card-content">
+            A full-day engagement where Simon works with a school on-site or remotely to design, implement, or refine systems
+            that support teachers and leadership teams.
+          </p>
+          <p class="card-content" style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-xs);"><strong>Example activities:</strong></p>
+          <ul class="card-content" style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md); line-height: 1.7;">
+            <li>• designing intervention or adjustment tracking systems</li>
+            <li>• building teacher workflow tools</li>
+            <li>• developing leadership dashboards</li>
+            <li>• implementing digital learning support systems</li>
+            <li>• staff training and professional learning</li>
+          </ul>
+          <p class="card-content"><strong>Pricing:</strong> Typically $900–$1,500 per day</p>
+          <p class="card-content" style="margin-top: var(--spacing-xs); font-size: 0.85rem;">
+            This engagement model is similar to hiring a specialist CRT or consultant for targeted system development and training.
+          </p>
         </div>
+
+        <!-- Tier 3: Pilot Implementation or Short Project -->
         <div class="card" data-animate>
-          <h3 class="card-title">Principal 1:1 strategy</h3>
-          <p class="card-content">Focused sessions with principals to plan AI adoption, workflow changes and pilot projects.</p>
-          <p class="card-content"><strong>From:</strong> $350 ex‑GST (single 60‑minute session) · $900 ex‑GST (3‑session block)</p>
-          <a href="contact.html" class="btn btn-outline">Discuss options</a>
+          <h3 class="card-title">Pilot Implementation or Short Project</h3>
+          <p class="card-content">
+            For schools wishing to trial or implement a structured system across a program, team, or cohort.
+          </p>
+          <p class="card-content" style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-xs);"><strong>Example inclusions:</strong></p>
+          <ul class="card-content" style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md); line-height: 1.7;">
+            <li>• system design and configuration</li>
+            <li>• pilot rollout with staff</li>
+            <li>• workflow refinement</li>
+            <li>• feedback and iteration</li>
+          </ul>
+          <p class="card-content"><strong>Pricing:</strong> Custom pricing depending on scope</p>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">Leadership & implementation</h3>
-          <p class="card-content">Whole‑school or network strategy, implementation support and review for AI‑enabled tools and workflows.</p>
-          <p class="card-content"><strong>From:</strong> $2,200 ex‑GST per planning day · project pricing available for multi‑campus work</p>
-          <a href="contact.html" class="btn btn-outline">Request a quote</a>
+
+        <!-- Tier 4: Retained Systems Specialist -->
+        <div class="card" data-animate style="border-width: 1.5px;">
+          <h3 class="card-title">Retained Systems Specialist</h3>
+          <p class="card-content">
+            For schools wanting ongoing support designing, maintaining, and evolving digital systems that support teaching teams and leadership.
+            This model allows schools to retain Simon on a regular CRT-style basis to provide continuous support and improvement.
+          </p>
+          <p class="card-content" style="margin-top: var(--spacing-sm); margin-bottom: var(--spacing-xs);"><strong>Typical activities:</strong></p>
+          <ul class="card-content" style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md); line-height: 1.7;">
+            <li>• maintaining learning support or intervention tracking systems</li>
+            <li>• refining dashboards and reporting tools</li>
+            <li>• assisting staff with workflows and documentation</li>
+            <li>• developing or adapting internal tools</li>
+            <li>• staff training and professional learning</li>
+          </ul>
+          <p class="card-content" style="margin-bottom: var(--spacing-xs);"><strong>Example engagement formats:</strong></p>
+          <ul class="card-content" style="list-style: none; padding-left: 0; margin-bottom: var(--spacing-md); line-height: 1.7;">
+            <li>• 1 day per week</li>
+            <li>• 2 days per fortnight</li>
+            <li>• several days per month</li>
+          </ul>
+          <p class="card-content"><strong>Pricing:</strong> Available as a monthly retainer or day‑rate engagement</p>
         </div>
       </div>
     </div>
@@ -281,29 +351,22 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Simon Dass</h3>
-        <p>Teacher • Developer • Musician</p>
-        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
-        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="tools.html">Tools</a></p>
-        <p><a href="case-studies.html">Case Studies</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="contact.html">Get in Touch</a></p>
-        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
-      </div>
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
-      <p class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
     </div>
   </footer>
 

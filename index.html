@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simon Dass | Ed Tech Consultancy Melbourne — AI in Education & Free 30-Min Chat</title>
-  <meta name="description" content="Simon Dass runs an ed tech consultancy in the Melbourne region. AI in education for schools: workflow automation, NCCD support, teacher tools. Book a free 30-minute AI chat for Australian schools.">
+  <title>Learning Systems Studio | Practical Digital Systems for Schools</title>
+  <meta name="description" content="Learning Systems Studio designs practical digital systems for schools—learning support, intervention tracking, teacher workflows, and leadership visibility—while keeping student data under school control.">
   <meta name="keywords" content="Simon Dass, ed tech consultancy Melbourne, Melbourne ed tech consultant, education technology consultant Melbourne, AI in education consultant, free 30 minute chat schools, free 30 min AI call, school AI workflow, NCCD AI tools, teacher workload automation Melbourne">
   <meta name="author" content="Simon Dass">
   <link rel="canonical" href="https://edtechconsult.services/">
@@ -51,7 +51,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -60,158 +60,246 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Simon Dass</a>
+      <a href="index.html" class="navbar-brand">Learning Systems Studio</a>
       <ul class="navbar-menu">
         <li><a href="index.html" class="active">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="practice.html">PRACTICE</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="tools.html">TOOLS</a></li>
-        <li><a href="case-studies.html">CASES</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="systems.html">SYSTEMS</a></li>
+        <li><a href="approach.html">APPROACH</a></li>
+        <li><a href="governance.html">GOVERNANCE</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="nav-cta">BOOK A CALL</a></li>
       </ul>
       <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
 
+  <!-- Role prompt overlay — appears 2s after load -->
+  <div class="role-prompt-overlay" id="role-prompt-overlay" aria-hidden="true" aria-label="Select your role to tailor content">
+    <div class="role-prompt-overlay-backdrop"></div>
+    <div class="role-prompt-overlay-content">
+      <p class="role-prompt-message">We tailor this experience to your role—choose yours below.</p>
+      <div class="audience-cards" role="group" aria-label="Select your role">
+        <button type="button" class="audience-card" data-audience="all">
+          <span class="audience-card-icon" aria-hidden="true">◉</span>
+          <span class="audience-card-label">Everyone</span>
+          <span class="audience-card-desc">See the full picture</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="principal">
+          <span class="audience-card-icon" aria-hidden="true">▣</span>
+          <span class="audience-card-label">Principal</span>
+          <span class="audience-card-desc">Visibility & leadership</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="teacher">
+          <span class="audience-card-icon" aria-hidden="true">◇</span>
+          <span class="audience-card-label">Teacher</span>
+          <span class="audience-card-desc">Less admin, more teaching</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="it">
+          <span class="audience-card-icon" aria-hidden="true">▤</span>
+          <span class="audience-card-label">IT / Data lead</span>
+          <span class="audience-card-desc">Control & governance</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="hero-section">
     <div class="hero-content">
       <div class="hero-grid">
         <div class="hero-text">
-          <h1 class="hero-headline" data-hero-headline>AI integration for schools.</h1>
-          <p>AI-powered workflows that reduce teacher admin, support NCCD, and keep inclusion at the centre.</p>
+          <h1 class="hero-headline" data-hero-headline>Designing practical digital systems for schools.</h1>
+          <div class="hero-dynamic-block">
+            <p class="hero-subline dynamic-subline" data-role="all">Less <span class="hero-keyword" style="--kw-i: 0">admin</span>. Better <span class="hero-keyword" style="--kw-i: 1">visibility</span>. Data under your <span class="hero-keyword" style="--kw-i: 2">control</span>.</p>
+            <p class="hero-subline dynamic-subline" data-role="principal">See what's happening across your school at a <span class="hero-keyword" style="--kw-i: 0">glance</span>.</p>
+            <p class="hero-subline dynamic-subline" data-role="teacher">Less <span class="hero-keyword" style="--kw-i: 0">paperwork</span>. More time for <span class="hero-keyword" style="--kw-i: 1">students</span>.</p>
+            <p class="hero-subline dynamic-subline" data-role="it"><span class="hero-keyword" style="--kw-i: 0">Data</span> stays where you <span class="hero-keyword" style="--kw-i: 1">control</span> it.</p>
+            <p class="dynamic-desc" data-role="all">Learning <span class="hero-keyword" style="--kw-i: 3">support</span>, intervention <span class="hero-keyword" style="--kw-i: 4">tracking</span>, workflows, and reporting—designed to reduce teacher workload and keep data under school <span class="hero-keyword" style="--kw-i: 5">control</span>.</p>
+            <p class="dynamic-desc" data-role="principal">Leadership <span class="hero-keyword" style="--kw-i: 1">dashboards</span>, intervention <span class="hero-keyword" style="--kw-i: 2">visibility</span>, and <span class="hero-keyword" style="--kw-i: 3">governance</span>—so you can see support patterns and make decisions without hunting for information.</p>
+            <p class="dynamic-desc" data-role="teacher">AI-assisted <span class="hero-keyword" style="--kw-i: 2">documentation</span>, <span class="hero-keyword" style="--kw-i: 3">NCCD</span> workflows, and tools that fit how you already work—so you can focus on <span class="hero-keyword" style="--kw-i: 4">students</span>, not forms and endless admin.</p>
+            <p class="dynamic-desc" data-role="it"><span class="hero-keyword" style="--kw-i: 2">School-owned</span> data models, <span class="hero-keyword" style="--kw-i: 3">privacy</span>-by-design, and infrastructure that keeps student information under your <span class="hero-keyword" style="--kw-i: 4">control</span>—not in opaque third-party systems.</p>
+          </div>
           <div class="hero-buttons">
-            <a href="tools.html" class="btn">View my solutions</a>
-            <a href="mailto:simon.dass.1996@gmail.com?subject=Free%2030-minute%20AI%20chat" class="btn btn-outline">Book a free 30‑minute chat</a>
+            <a href="contact.html" class="btn">Book a 30‑min conversation</a>
+            <a href="services.html" class="btn btn-outline">View services</a>
           </div>
         </div>
         <div class="hero-image-wrapper">
-          <img src="assets/portrait.png" alt="Simon Dass - Teacher, Developer, Musician" class="hero-image">
+          <img src="assets/portrait.png" alt="Simon Dass — Education systems & learning technology consultant" class="hero-image">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- What I Do Overview -->
+  <!-- Role selector - card-style, prominent -->
+  <section class="section audience-filter-section">
+    <div class="container">
+      <p class="audience-filter-label">I'm viewing as</p>
+      <div class="audience-cards" role="group" aria-label="Select your role">
+        <button type="button" class="audience-card active" data-audience="all">
+          <span class="audience-card-icon" aria-hidden="true">◉</span>
+          <span class="audience-card-label">Everyone</span>
+          <span class="audience-card-desc">See the full picture</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="principal">
+          <span class="audience-card-icon" aria-hidden="true">▣</span>
+          <span class="audience-card-label">Principal</span>
+          <span class="audience-card-desc">Visibility & leadership</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="teacher">
+          <span class="audience-card-icon" aria-hidden="true">◇</span>
+          <span class="audience-card-label">Teacher</span>
+          <span class="audience-card-desc">Less admin, more teaching</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="it">
+          <span class="audience-card-icon" aria-hidden="true">▤</span>
+          <span class="audience-card-label">IT / Data lead</span>
+          <span class="audience-card-desc">Control & governance</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who we help (merged Who + Problems, accordion) -->
+  <section class="section section-alt" style="position: relative;">
+    <div class="container">
+      <h2 class="text-center dynamic-heading" data-animate data-role="all">Problems we help solve</h2>
+      <h2 class="text-center dynamic-heading" data-animate data-role="principal">Problems principals face</h2>
+      <h2 class="text-center dynamic-heading" data-animate data-role="teacher">Problems teachers face</h2>
+      <h2 class="text-center dynamic-heading" data-animate data-role="it">Problems IT leads face</h2>
+      <div class="accordion-grid" style="max-width: 800px; margin: var(--spacing-lg) auto 0;">
+        <div class="card accordion-item" data-animate data-audience="principal teacher">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-1" id="help-trigger-1">Support tracking across specialist & alternative settings</button>
+          <div class="accordion-panel" id="help-1" aria-hidden="true" role="region" aria-labelledby="help-trigger-1">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Specialist schools, alternative and flexible learning settings, and programs working with complex cohorts.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="principal">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-2" id="help-trigger-2">No clear view of interventions and adjustments</button>
+          <div class="accordion-panel" id="help-2" aria-hidden="true" role="region" aria-labelledby="help-trigger-2">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Principals and inclusion leaders who need clearer visibility of interventions and adjustments.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="it">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-3" id="help-trigger-3">Systems that require handing over student data</button>
+          <div class="accordion-panel" id="help-3" aria-hidden="true" role="region" aria-labelledby="help-trigger-3">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">School and system teams who want strong digital systems without handing student data to third‑party platforms.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="principal teacher">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-4" id="help-trigger-4">Adjustments scattered across docs and spreadsheets</button>
+          <div class="accordion-panel" id="help-4" aria-hidden="true" role="region" aria-labelledby="help-trigger-4">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Adjustments scattered across docs, emails, and spreadsheets — hard to see what support is actually in place.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="principal teacher">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-5" id="help-trigger-5">Intervention records hard to monitor across teams</button>
+          <div class="accordion-panel" id="help-5" aria-hidden="true" role="region" aria-labelledby="help-trigger-5">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Intervention notes that are difficult to monitor across teams, campuses, or time.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="teacher">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-6" id="help-trigger-6">Documentation expectations that feel unsustainable</button>
+          <div class="accordion-panel" id="help-6" aria-hidden="true" role="region" aria-labelledby="help-trigger-6">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Documentation expectations that are important but unsustainable.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="principal">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-7" id="help-trigger-7">Can't see which students get which support</button>
+          <div class="accordion-panel" id="help-7" aria-hidden="true" role="region" aria-labelledby="help-trigger-7">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Leaders who cannot easily see which students receive which supports, or how things change over time.</p></div>
+          </div>
+        </div>
+        <div class="card accordion-item" data-animate data-audience="it principal">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="help-8" id="help-trigger-8">Student data in opaque third‑party systems</button>
+          <div class="accordion-panel" id="help-8" aria-hidden="true" role="region" aria-labelledby="help-trigger-8">
+            <div class="accordion-content"><p class="card-content" style="margin: 0;">Concern about student data in opaque third‑party systems that are hard to exit or govern.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services + Why This Model Works (tabs) -->
   <section class="section" style="position: relative;">
     <div class="container">
-      <h2 class="text-center" data-animate data-typewriter>What I Do</h2>
-      <p class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
-        I combine teaching experience, technical skills, and a deep understanding of school workflows to build tools that actually work in real classrooms.
-      </p>
-      <div class="card-grid">
-        <div class="card" data-animate>
-          <h3 class="card-title">AI & EdTech Consulting</h3>
-          <p class="card-content">Strategic AI guidance that respects teacher time and improves outcomes.</p>
+      <div class="tabs">
+        <div class="tabs-header" role="tablist">
+          <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="tab-services" id="tab-services-btn">What we do</button>
+          <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-how" id="tab-how-btn">How we work</button>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">Custom Tool & Dashboard Development</h3>
-          <p class="card-content">Web-based tools from NCCD docs to progress tracking—built for your school.</p>
+        <div class="tab-panel active" id="tab-services" role="tabpanel" aria-labelledby="tab-services-btn">
+          <div class="card-grid">
+        <div class="card" data-animate data-audience="principal teacher">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="24" height="18" rx="1.5"/><path d="M8 12h8M8 16h5M8 20h6"/></svg>
+          </span>
+          <h3 class="card-title">Learning support systems</h3>
+          <p class="card-content">Adjustment and intervention tracking that fits your workflows.</p>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">NCCD & Inclusion Systems</h3>
-          <p class="card-content">Standardised adjustment docs, less admin, better evidence quality.</p>
+        <div class="card" data-animate data-audience="teacher">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="10" height="10" rx="1"/><rect x="18" y="4" width="10" height="10" rx="1"/><rect x="4" y="18" width="10" height="10" rx="1"/><rect x="18" y="18" width="10" height="10" rx="1"/></svg>
+          </span>
+          <h3 class="card-title">AI‑assisted teacher workflows</h3>
+          <p class="card-content">AI tools for documentation and planning — judgment stays with humans.</p>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">Data-Informed Teaching Workflows</h3>
-          <p class="card-content">Centralised tracking, automated reporting, actionable insights—without overwhelm.</p>
+        <div class="card" data-animate data-audience="principal">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 24V8h20v16"/><path d="M10 18l4-4 3 3 5-5"/><circle cx="11" cy="24" r="1"/><circle cx="16" cy="24" r="1"/><circle cx="21" cy="24" r="1"/></svg>
+          </span>
+          <h3 class="card-title">Leadership dashboards</h3>
+          <p class="card-content">Right information for leadership — without exposing unnecessary detail.</p>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">Curriculum & Assessment Design</h3>
-          <p class="card-content">VCE-VM and alternative pathways with authentic, trauma-informed assessment.</p>
+        <div class="card" data-animate data-audience="it">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="20" height="16" rx="1.5"/><path d="M10 12h6M10 16h3M10 20h4"/></svg>
+          </span>
+          <h3 class="card-title">Data governance & implementation</h3>
+          <p class="card-content">School‑owned data models, infrastructure choices, privacy‑aligned implementation.</p>
         </div>
-        <div class="card" data-animate>
-          <h3 class="card-title">Professional Learning & Training</h3>
-          <p class="card-content">PD and implementation support so your team adopts tools with confidence.</p>
+        <div class="card" data-animate data-audience="teacher principal">
+          <span class="card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h20M10 6v4M22 6v4"/><rect x="6" y="10" width="20" height="14" rx="1.5"/><path d="M11 16h5M11 20h3"/></svg>
+          </span>
+          <h3 class="card-title">Professional learning & workshops</h3>
+          <p class="card-content">Staff workshops on AI, documentation, and data‑informed practice.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected Highlights / Impact -->
-  <section class="section section-alt parallax-section" style="position: relative;">
-    <div class="parallax-bg"></div>
-    <div class="container parallax-content">
-      <h2 class="text-center" data-animate data-typewriter>Impact & Highlights</h2>
-      <p class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
-        Real results from real schools—tools and systems that make a measurable difference.
-      </p>
-      <div class="card-grid">
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-1" id="impact-trigger-1">
-            <span>Statewide VCE-VM Curriculum</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">QA outcomes 2023 · Used across multiple campuses statewide</p>
-          <div class="accordion-panel" id="impact-1" aria-hidden="true" role="region" aria-labelledby="impact-trigger-1">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> Need for quality alternative pathway curriculum across multiple campuses.</p>
-              <p><strong>Solution:</strong> Designed comprehensive VCE-VM curriculum with authentic assessment and flexible delivery.</p>
-              <p><strong>Impact:</strong> Successful QA outcomes in 2023, now used across multiple campuses statewide.</p>
-            </div>
+          </div>
+          <div class="text-center" style="margin-top: var(--spacing-lg);">
+            <a href="services.html" class="btn btn-outline">View all services</a>
           </div>
         </div>
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-2" id="impact-trigger-2">
-            <span>Statewide Progress Tracking</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">Better meetings · Data-informed decisions across the network</p>
-          <div class="accordion-panel" id="impact-2" aria-hidden="true" role="region" aria-labelledby="impact-trigger-2">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> Fragmented data across schools making meetings and planning difficult.</p>
-              <p><strong>Solution:</strong> Built centralised tracking tool (TrackMe-Ed) that aggregates student progress across time and subjects.</p>
-              <p><strong>Impact:</strong> Improved meeting efficiency and data-informed decision making across the network.</p>
+        <div class="tab-panel" id="tab-how" role="tabpanel" aria-labelledby="tab-how-btn" hidden>
+          <div class="card-grid">
+            <div class="card" data-animate>
+              <h3 class="card-title">Designed around school workflows</h3>
+              <p class="card-content">Match how your staff already work — don't force a new pattern.</p>
             </div>
-          </div>
-        </div>
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-3" id="impact-trigger-3">
-            <span>Near-Zero Admin Utilities</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">Hours → minutes · Teachers focus on teaching</p>
-          <div class="accordion-panel" id="impact-3" aria-hidden="true" role="region" aria-labelledby="impact-trigger-3">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> Repetitive administrative tasks consuming teacher time.</p>
-              <p><strong>Solution:</strong> Developed HTML automation tools that eliminate repetitive admin workflows.</p>
-              <p><strong>Impact:</strong> Significant time savings for teachers, allowing focus on teaching and student support.</p>
+            <div class="card" data-animate>
+              <h3 class="card-title">School‑owned data</h3>
+              <p class="card-content">Data lives in school‑controlled environments — you keep control.</p>
             </div>
-          </div>
-        </div>
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-4" id="impact-trigger-4">
-            <span>Inclusion with Complex Cohorts</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">3/10 → 7/10 days attendance per fortnight</p>
-          <div class="accordion-panel" id="impact-4" aria-hidden="true" role="region" aria-labelledby="impact-trigger-4">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> Disengaged youth and youth justice students with low attendance and complex needs.</p>
-              <p><strong>Solution:</strong> Trauma-informed routines, flexible assessment, and tools that support diverse learning needs.</p>
-              <p><strong>Impact:</strong> Attendance improvements from 3/10 to 7/10 days per fortnight in challenging cohorts.</p>
+            <div class="card" data-animate>
+              <h3 class="card-title">Minimal data only</h3>
+              <p class="card-content">Collect only what you need, for clear purposes.</p>
             </div>
-          </div>
-        </div>
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-5" id="impact-trigger-5">
-            <span>Diverse Assessment for Diverse Learners</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">Authentic progress capture · Improved engagement</p>
-          <div class="accordion-panel" id="impact-5" aria-hidden="true" role="region" aria-labelledby="impact-trigger-5">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> One-size-fits-all assessment failing to capture student progress authentically.</p>
-              <p><strong>Solution:</strong> Designed flexible assessment frameworks that honour diverse learning styles and needs.</p>
-              <p><strong>Impact:</strong> More accurate representation of student achievement and improved engagement.</p>
-            </div>
-          </div>
-        </div>
-        <div class="card impact-card accordion-item" data-animate>
-          <button class="accordion-trigger" aria-expanded="false" aria-controls="impact-6" id="impact-trigger-6">
-            <span>NCCD Evidence Tools</span>
-          </button>
-          <p class="impact-teaser" style="margin: 0 var(--spacing-md) var(--spacing-sm);">Less admin · Better evidence quality (AdjustMe)</p>
-          <div class="accordion-panel" id="impact-6" aria-hidden="true" role="region" aria-labelledby="impact-trigger-6">
-            <div class="accordion-content">
-              <p><strong>Problem:</strong> Inconsistent NCCD documentation and time-consuming evidence collection.</p>
-              <p><strong>Solution:</strong> Built standardised adjustment commentary tools and evidence workflows (AdjustMe).</p>
-              <p><strong>Impact:</strong> Reduced admin burden while improving evidence quality and consistency.</p>
+            <div class="card" data-animate>
+              <h3 class="card-title">Practical implementation</h3>
+              <p class="card-content">Pilots, iteration, and ongoing support — so it actually gets used.</p>
             </div>
           </div>
         </div>
@@ -219,75 +307,98 @@
     </div>
   </section>
 
-  <!-- Tools Preview (Mate Suite) -->
+  <!-- Privacy & Compliance -->
+  <section class="section section-alt" style="position: relative;">
+    <div class="container">
+      <h2 class="text-center" data-animate data-typewriter>Privacy & Compliance</h2>
+      <p class="text-center" style="max-width: 600px; margin: 0 auto var(--spacing-md); color: var(--color-text-secondary);" data-animate>
+        Strong systems without giving away control of your data.
+      </p>
+      <div class="text-center">
+        <a href="Edtech Consultancy Data Privacy Overview.pdf" class="btn btn-outline" data-animate download>
+          Download data governance overview (PDF)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Systems (Examples) -->
   <section class="section" style="position: relative;">
     <div class="container">
-      <h2 class="text-center" data-animate data-typewriter>The Mate Suite</h2>
-      <p class="text-center" style="max-width: 800px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
-        A suite of teacher-first tools designed to streamline workflows and improve student outcomes.
-      </p>
+      <h2 class="text-center" data-animate data-typewriter>Featured Systems</h2>
       <div class="card-grid">
-        <div class="tool-card" data-animate>
+        <div class="tool-card" data-animate data-audience="principal teacher it">
           <video class="tool-card-image" autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background-color: var(--color-bg-primary);">
             <source src="assets/adjustme.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
           <div class="tool-card-content">
-            <h3 class="tool-card-title">AdjustMe</h3>
-            <p class="card-content">NCCD adjustment and evidence documentation tool that standardises commentary and reduces admin time.</p>
-            <a href="tools.html#adjustme" class="btn btn-outline" style="margin-top: var(--spacing-sm);">Learn More</a>
+            <h3 class="tool-card-title">Intervention & adjustment tracking</h3>
+            <p class="card-content">NCCD documentation and evidence workflows that reduce admin.</p>
+            <a href="tools.html#adjustme" class="btn btn-outline" style="margin-top: var(--spacing-sm);">View example</a>
           </div>
         </div>
-        <div class="tool-card" data-animate>
+        <div class="tool-card" data-animate data-audience="principal it">
           <video class="tool-card-image" autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background-color: var(--color-bg-primary);">
             <source src="assets/trackme.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
           <div class="tool-card-content">
-            <h3 class="tool-card-title">TrackMe-Ed</h3>
-            <p class="card-content">Student progress tracking across schools, subjects, and time—centralised data for better meetings and planning.</p>
-            <a href="tools.html#trackme" class="btn btn-outline" style="margin-top: var(--spacing-sm);">Learn More</a>
+            <h3 class="tool-card-title">Leadership reporting views</h3>
+            <p class="card-content">Centralised tracking so leaders see support patterns at a glance.</p>
+            <a href="tools.html#trackme" class="btn btn-outline" style="margin-top: var(--spacing-sm);">View example</a>
           </div>
         </div>
-        <div class="tool-card" data-animate>
+        <div class="tool-card" data-animate data-audience="teacher">
           <video class="tool-card-image" autoplay loop muted playsinline style="width: 100%; height: 200px; object-fit: cover; background-color: var(--color-bg-primary);">
             <source src="assets/classwork.webm" type="video/webm">
             Your browser does not support the video tag.
           </video>
           <div class="tool-card-content">
-            <h3 class="tool-card-title">ClassWork-Ed</h3>
-            <p class="card-content">Rapid curriculum delivery tools that support flexible program design and authentic assessment.</p>
-            <a href="tools.html#classwork" class="btn btn-outline" style="margin-top: var(--spacing-sm);">Learn More</a>
+            <h3 class="tool-card-title">Teacher workflow tools</h3>
+            <p class="card-content">Curriculum delivery, documentation, and planning for diverse learners.</p>
+            <a href="tools.html#classwork" class="btn btn-outline" style="margin-top: var(--spacing-sm);">View example</a>
           </div>
         </div>
       </div>
-      <div class="text-center" style="margin-top: var(--spacing-lg);">
-        <a href="tools.html" class="btn">View All Tools</a>
+      <div class="text-center hero-buttons" style="margin-top: var(--spacing-lg); gap: var(--spacing-md); flex-wrap: wrap; justify-content: center;">
+        <a href="tools.html" class="btn">Explore systems in more detail</a>
+        <a href="case-studies.html" class="btn btn-outline">View case studies</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
+  <!-- Credibility & Outcomes -->
   <section class="section section-alt" style="position: relative;">
     <div class="container">
-      <h2 class="text-center" data-animate data-typewriter>What Schools Are Saying</h2>
-      <div class="carousel" data-animate>
+      <h2 class="text-center" data-animate data-typewriter>Outcomes & testimonials</h2>
+      <p class="text-center" style="margin-bottom: var(--spacing-md);"><a href="about.html">About Simon</a></p>
+      <div class="carousel" data-animate style="margin-top: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto;">
         <div class="carousel-track">
           <div class="carousel-slide">
             <div class="testimonial">
-              <p class="testimonial-quote">"Simon's tools have transformed how we document NCCD adjustments. What used to take hours now takes minutes, and the quality of our evidence has improved significantly."</p>
+              <p class="testimonial-quote">
+                "Simon's tools have transformed how we document NCCD adjustments. What used to take hours now takes minutes,
+                and the quality of our evidence has improved significantly."
+              </p>
               <p class="testimonial-author">— Principal, Regional Secondary School</p>
             </div>
           </div>
           <div class="carousel-slide">
             <div class="testimonial">
-              <p class="testimonial-quote">"The VCE-VM curriculum Simon designed has been a game-changer for our alternative pathway students. It's flexible, engaging, and meets all QA requirements."</p>
-              <p class="testimonial-author">— Curriculum Coordinator, Multi-Campus School</p>
+              <p class="testimonial-quote">
+                "The VCE‑VM curriculum Simon designed has been a game‑changer for our alternative pathway students.
+                It's flexible, engaging, and meets all QA requirements."
+              </p>
+              <p class="testimonial-author">— Curriculum Coordinator, Secondary School</p>
             </div>
           </div>
           <div class="carousel-slide">
             <div class="testimonial">
-              <p class="testimonial-quote">"TrackMe-Ed has revolutionised our student support meetings. Having all the data in one place means we can actually focus on solutions instead of hunting for information."</p>
+              <p class="testimonial-quote">
+                "TrackMe‑Ed has revolutionised our student support meetings. Having all the data in one place means we can actually
+                focus on solutions instead of hunting for information."
+              </p>
               <p class="testimonial-author">— Student Support Leader, Metropolitan School</p>
             </div>
           </div>
@@ -305,46 +416,44 @@
     </div>
   </section>
 
-  <!-- CTA Banner: Free 30-minute call -->
+
+  <!-- Final CTA -->
   <section class="section parallax-section">
     <div class="parallax-bg"></div>
     <div class="container parallax-content text-center">
-      <h2 data-animate data-typewriter>Free 30‑minute AI chat for Melbourne and Australian schools.</h2>
-      <p style="font-size: 1rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate>
-        Bring a real workflow challenge—we'll map how AI can reduce workload without losing nuance.
-      </p>
+      <h2 class="dynamic-cta-heading" data-animate data-role="all">If your school needs a smarter way to track support, reduce admin, or implement digital systems safely, let’s talk.</h2>
+      <h2 class="dynamic-cta-heading" data-animate data-role="principal">Get the visibility you need—without the admin.</h2>
+      <h2 class="dynamic-cta-heading" data-animate data-role="teacher">Tools that actually save you time.</h2>
+      <h2 class="dynamic-cta-heading" data-animate data-role="it">Infrastructure you can trust and govern.</h2>
+      <p class="dynamic-cta-desc" style="font-size: 1rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate data-role="all">Bring a real problem — we’ll map a practical, privacy‑conscious model for your context and explore whether a pilot makes sense.</p>
+      <p class="dynamic-cta-desc" style="font-size: 1rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate data-role="principal">See what’s possible with leadership dashboards and intervention visibility—book a 30‑min conversation.</p>
+      <p class="dynamic-cta-desc" style="font-size: 1rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate data-role="teacher">Explore AI-assisted documentation and NCCD workflows—book a 30‑min conversation.</p>
+      <p class="dynamic-cta-desc" style="font-size: 1rem; color: var(--color-text-secondary); margin: var(--spacing-md) 0 var(--spacing-lg);" data-animate data-role="it">Discuss data governance and school-owned infrastructure—book a 30‑min conversation.</p>
       <div class="hero-buttons" style="justify-content: center;">
-        <a href="mailto:simon.dass.1996@gmail.com?subject=Free%2030-minute%20AI%20call%20enquiry" class="btn" data-animate>Book a free 30‑minute call</a>
-        <a href="services.html#pricing" class="btn btn-outline" data-animate>View services & pricing</a>
+        <a href="contact.html" class="btn" data-animate>Book a conversation</a>
+        <a href="services.html" class="btn btn-outline" data-animate>Explore services</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Simon Dass</h3>
-        <p>Teacher • Developer • Musician</p>
-        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
-        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="tools.html">Tools</a></p>
-        <p><a href="case-studies.html">Case Studies</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="contact.html">Get in Touch</a></p>
-        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
-      </div>
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
-      <p class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
     </div>
   </footer>
 

@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -20,16 +20,29 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Simon Dass</a>
-      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
+      <a href="index.html" class="navbar-brand">Learning Systems Studio</a>
       <ul class="navbar-menu">
         <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html">ABOUT</a></li>
+        <li><a href="practice.html">PRACTICE</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="tools.html">TOOLS</a></li>
-        <li><a href="case-studies.html">CASES</a></li>
-        <li><a href="contact.html" class="active">CONTACT</a></li>
+        <li><a href="systems.html">SYSTEMS</a></li>
+        <li><a href="approach.html">APPROACH</a></li>
+        <li><a href="governance.html">GOVERNANCE</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="active nav-cta">BOOK A CALL</a></li>
       </ul>
+      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
 
@@ -43,6 +56,31 @@
     </div>
   </section>
 
+  <!-- Role selector (compact) -->
+  <section class="section audience-filter-section" style="padding-top: 0;">
+    <div class="container">
+      <p class="audience-filter-label">I'm viewing as</p>
+      <div class="audience-cards audience-cards--compact" role="group" aria-label="Select your role">
+        <button type="button" class="audience-card active" data-audience="all">
+          <span class="audience-card-icon" aria-hidden="true">◉</span>
+          <span class="audience-card-label">Everyone</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="principal">
+          <span class="audience-card-icon" aria-hidden="true">▣</span>
+          <span class="audience-card-label">Principal</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="teacher">
+          <span class="audience-card-icon" aria-hidden="true">◇</span>
+          <span class="audience-card-label">Teacher</span>
+        </button>
+        <button type="button" class="audience-card" data-audience="it">
+          <span class="audience-card-icon" aria-hidden="true">▤</span>
+          <span class="audience-card-label">IT / Data lead</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact Section -->
   <section class="section">
     <div class="container">
@@ -50,10 +88,21 @@
         <div class="card" style="padding: var(--spacing-lg);" data-animate>
           <h2 style="margin-bottom: var(--spacing-md);">Send a Message</h2>
           <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md);">
-            Whether you're interested in consulting services, tool demos, or just want to discuss how EdTech can support your school, I'd love to hear from you. I typically respond within 24-48 hours.
+            Whether you're interested in consulting services, a systems review, or exploring how digital systems can support your school, I'd love to hear from you.
           </p>
+
+          <div class="what-happens-next" style="background: var(--color-bg-secondary); padding: var(--spacing-md); margin-bottom: var(--spacing-lg); border-left: 3px solid var(--color-accent);">
+            <h3 style="font-size: 1rem; margin-bottom: var(--spacing-sm);">What happens next</h3>
+            <ol style="margin: 0; padding-left: 1.25rem; color: var(--color-text-secondary); font-size: 0.9rem; line-height: 1.7;">
+              <li>I'll reply within 24–48 hours</li>
+              <li>We'll schedule a 30‑min call to map your needs</li>
+              <li>If it's a fit, we'll explore a pilot or engagement</li>
+            </ol>
+          </div>
           
           <form id="contact-form">
+            <p class="contact-viewing-as" id="contact-viewing-as" style="display: none; font-size: 0.75rem; color: var(--color-accent); margin-bottom: var(--spacing-md);"></p>
+            <input type="hidden" name="audience_view" id="audience_view" value="">
             <div class="form-group">
               <label for="name" class="form-label">Name *</label>
               <input type="text" id="name" name="name" class="form-input" required>
@@ -78,12 +127,12 @@
               <label for="interest" class="form-label">What are you most interested in?</label>
               <select id="interest" name="interest" class="form-select">
                 <option value="">Please select</option>
-                <option value="ai-workflows">AI workflow automation for teachers</option>
-                <option value="trackme-ed">TrackMe-Ed (attendance/behaviour/wellbeing dashboards)</option>
-                <option value="adjustme">AdjustMe (NCCD & personalised adjustments)</option>
-                <option value="classwork-ed">ClassWork-Ed (evidence & competency-based learning)</option>
-                <option value="leadership-strategy">Leadership strategy & digital implementation</option>
-                <option value="custom-tools">Custom AI or web tools for schools</option>
+                <option value="intervention-tracking">Intervention & adjustment tracking</option>
+                <option value="leadership-dashboards">Leadership dashboards & visibility</option>
+                <option value="ai-workflows">AI-assisted teacher workflows</option>
+                <option value="data-governance">Data governance & implementation</option>
+                <option value="professional-learning">Professional learning & workshops</option>
+                <option value="systems-review">Systems review or discovery</option>
                 <option value="other">Something else</option>
               </select>
             </div>
@@ -136,29 +185,22 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Simon Dass</h3>
-        <p>Teacher • Developer • Musician</p>
-        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
-        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="tools.html">Tools</a></p>
-        <p><a href="case-studies.html">Case Studies</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="contact.html">Get in Touch</a></p>
-        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
-      </div>
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
-      <p class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
     </div>
   </footer>
 

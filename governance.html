@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Governance & Privacy | Learning Systems Studio</title>
+  <meta name="description" content="Overview of data governance, privacy, and security for Learning Systems Studio: school-owned data, privacy-by-design, minimal data models, and alignment with Australian privacy expectations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-brand">Learning Systems Studio</a>
+      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="navbar-menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="practice.html">PRACTICE</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="systems.html">SYSTEMS</a></li>
+        <li><a href="approach.html">APPROACH</a></li>
+        <li><a href="governance.html" class="active">GOVERNANCE</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="nav-cta">BOOK A CALL</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" style="min-height: 50vh;">
+    <div class="container text-center">
+      <h1 data-animate data-typewriter>Governance, privacy & data</h1>
+      <p style="font-size: 1rem; color: var(--color-text-secondary); max-width: 900px; margin: 0 auto;" data-animate>
+        A consultancy model designed for schools that want strong digital systems without giving away control of their data.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core principles -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center" data-animate data-typewriter>Core data governance principles</h2>
+      <div class="card-grid" style="margin-top: var(--spacing-lg);">
+        <div class="card" data-animate>
+          <h3 class="card-title">School‑owned data</h3>
+          <p class="card-content">
+            Schools retain full ownership and control of their student information. Where possible, databases and storage remain within school‑controlled environments.
+          </p>
+        </div>
+        <div class="card" data-animate>
+          <h3 class="card-title">Minimal data models</h3>
+          <p class="card-content">
+            Systems are designed to collect only the information required to support educational workflows, with a strong emphasis on data minimisation.
+          </p>
+        </div>
+        <div class="card" data-animate>
+          <h3 class="card-title">Privacy‑by‑design</h3>
+          <p class="card-content">
+            Privacy considerations are embedded into system architecture from the beginning, not added at the end as an afterthought.
+          </p>
+        </div>
+        <div class="card" data-animate>
+          <h3 class="card-title">Transparent architecture</h3>
+          <p class="card-content">
+            System structure, hosting choices, and data flows are documented so leadership and IT teams can understand how everything fits together.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture & hosting -->
+  <section class="section section-alt">
+    <div class="container">
+      <h2 class="text-center" data-animate data-typewriter>Architecture & hosting model</h2>
+      <p class="text-center" style="max-width: 900px; margin: 0 auto var(--spacing-lg); color: var(--color-text-secondary);" data-animate>
+        Systems are typically designed so that the application layer sits on top of a school‑owned data environment.
+      </p>
+      <div class="card" data-animate>
+        <p class="card-content">
+          In most implementations:
+        </p>
+        <ul class="card-content" style="margin-top: var(--spacing-sm);">
+          <li>Teachers and staff use an application or workflow interface</li>
+          <li>The interface connects securely (e.g. HTTPS) to a school‑controlled data environment</li>
+          <li>Student information is stored in databases or cloud services managed by the school or system</li>
+          <li>The consultant does not centrally store student data outside of agreed environments</li>
+        </ul>
+        <p class="card-content">
+          Hosting environments may include Microsoft 365 / SharePoint, school‑managed cloud (such as Azure or Google Cloud), or school‑hosted databases and servers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Alignment & security -->
+  <section class="section">
+    <div class="container">
+      <h2 class="text-center" data-animate data-typewriter>Alignment with privacy expectations</h2>
+      <div class="card-grid" style="margin-top: var(--spacing-lg);">
+        <div class="card" data-animate>
+          <h3 class="card-title">Australian privacy frameworks</h3>
+          <p class="card-content">
+            System design is informed by Australian Privacy Principles, state education department requirements, and individual school privacy policies.
+          </p>
+        </div>
+        <div class="card" data-animate>
+          <h3 class="card-title">Information security practices</h3>
+          <p class="card-content">
+            Designs typically incorporate secure authentication, role‑based access control, encrypted connections, restricted database permissions,
+            and separation between application and data layers, drawing on widely recognised information security principles.
+          </p>
+        </div>
+      </div>
+      <div class="card" data-animate style="margin-top: var(--spacing-lg);">
+        <h3 class="card-title">Cybersecurity training</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--spacing-md); align-items: center;">
+          <img src="assets/google-cybersecurity-professional-certificate-v-2.png" alt="Google Cybersecurity Professional Certificate badge" style="height: 96px; width: auto;">
+          <p class="card-content" style="margin: 0;">
+            Formal cybersecurity training underpins decisions about how systems are architected and deployed, including authentication models,
+            access control, and protection of school‑owned data environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roles & responsibilities -->
+  <section class="section section-alt">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto;">
+        <h2 data-animate data-typewriter>Roles & responsibilities</h2>
+        <div class="card" data-animate>
+          <h3 class="card-title">Consultant responsibilities</h3>
+          <p class="card-content">
+            Learning Systems Studio is responsible for system architecture design, configuration of software tools, technical documentation,
+            and supporting schools through implementation, training, and refinement.
+          </p>
+          <h3 class="card-title" style="margin-top: var(--spacing-md);">School responsibilities</h3>
+          <p class="card-content">
+            Schools remain responsible for hosting environments, day‑to‑day management of student data, access permissions, and compliance with their
+            organisational privacy policies and regulatory obligations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF link -->
+  <section class="section">
+    <div class="container text-center">
+      <h2 data-animate data-typewriter>Detailed governance document</h2>
+      <p style="font-size: 0.95rem; color: var(--color-text-secondary); max-width: 800px; margin: 0 auto var(--spacing-lg);" data-animate>
+        A more detailed technical overview of data governance, privacy, and security is available for leadership, IT, and governance teams.
+      </p>
+      <a href="Edtech Consultancy Data Privacy Overview.pdf" class="btn btn-outline" download>
+        Download Data Governance, Privacy &amp; Security Overview (PDF)
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+

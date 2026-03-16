@@ -11,7 +11,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
@@ -20,16 +20,29 @@
   <!-- Navigation -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="index.html" class="navbar-brand">Simon Dass</a>
-      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
+      <a href="index.html" class="navbar-brand">Learning Systems Studio</a>
       <ul class="navbar-menu">
         <li><a href="index.html">HOME</a></li>
-        <li><a href="about.html" class="active">ABOUT</a></li>
+        <li><a href="practice.html">PRACTICE</a></li>
         <li><a href="services.html">SERVICES</a></li>
-        <li><a href="tools.html">TOOLS</a></li>
-        <li><a href="case-studies.html">CASES</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="systems.html">SYSTEMS</a></li>
+        <li><a href="approach.html">APPROACH</a></li>
+        <li><a href="governance.html">GOVERNANCE</a></li>
+        <li><a href="about.html" class="active">ABOUT</a></li>
+        <li class="navbar-role-item">
+          <div class="navbar-role-dropdown">
+            <button type="button" class="navbar-role-indicator" id="navbar-role-indicator" aria-haspopup="true" aria-expanded="false" aria-live="polite">Viewing as: Everyone</button>
+            <div class="navbar-role-menu" id="navbar-role-menu" role="menu" aria-label="Switch role" hidden>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="all">Everyone</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="principal">Principal</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="teacher">Teacher</button>
+              <button type="button" class="role-menu-item" role="menuitem" data-audience="it">IT / Data lead</button>
+            </div>
+          </div>
+        </li>
+        <li><a href="contact.html" class="nav-cta">BOOK A CALL</a></li>
       </ul>
+      <button class="navbar-toggle" aria-label="Toggle menu">☰</button>
     </div>
   </nav>
 
@@ -58,7 +71,7 @@
           </button>
           <div class="accordion-panel" id="story-more" aria-hidden="true" role="region" aria-labelledby="story-trigger">
             <div class="accordion-content" style="margin: var(--spacing-md) 0 0; padding-top: var(--spacing-md); border-top: 1px solid var(--color-border);">
-              <p>As a teacher, I saw how admin burden, fragmented data and generic platforms pulled attention away from students. As a developer, I built tools to fix that—first small scripts, then TrackMe-Ed, AdjustMe and ClassWork-Ed across multiple campuses.</p>
+              <p>As a teacher, I saw how admin burden, fragmented data and generic platforms pulled attention away from students. As a developer, I built tools to fix that—first small scripts, then tools like TrackMe-Ed, AdjustMe and ClassWork-Ed for use across sites.</p>
               <p>Every project starts with: <strong>How does this make a teacher's life easier while strengthening inclusion?</strong> If the answer isn't clear, we redesign before writing code.</p>
               <p class="card-content" style="margin-top: var(--spacing-md);">
                 <strong>Victorian Institute of Teaching</strong><br>
@@ -154,11 +167,11 @@
       <h2 class="text-center" data-animate data-typewriter>Key Achievements</h2>
       <div class="card-grid" style="margin-top: var(--spacing-lg); max-width: 900px; margin-left: auto; margin-right: auto;">
         <div class="card" data-animate>
-          <h3 class="card-title">Statewide VCE-VM Curriculum</h3>
-          <p class="card-content">QA outcomes 2023 · Used across multiple campuses</p>
+          <h3 class="card-title">VCE-VM Curriculum Design</h3>
+          <p class="card-content">Successful QA outcomes · Used across multiple sites</p>
         </div>
         <div class="card" data-animate>
-          <h3 class="card-title">Statewide Tracking Tools</h3>
+          <h3 class="card-title">Centralised Tracking Tools</h3>
           <p class="card-content">TrackMe-Ed—centralised progress tracking, better meetings, data-informed decisions</p>
         </div>
         <div class="card" data-animate>
@@ -167,7 +180,7 @@
         </div>
         <div class="card" data-animate>
           <h3 class="card-title">Attendance Improvements</h3>
-          <p class="card-content">3/10 → 7/10 days per fortnight in complex cohorts</p>
+          <p class="card-content">Significant attendance gains in complex cohorts</p>
         </div>
         <div class="card" data-animate>
           <h3 class="card-title">NCCD Evidence Tools</h3>
@@ -193,29 +206,22 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Simon Dass</h3>
-        <p>Teacher • Developer • Musician</p>
-        <p>I design VCE-VM curriculum, build teacher-first tools, and help students belong.</p>
-        <img src="assets/signature.png" alt="Simon Dass Signature" class="footer-signature">
-      </div>
-      <div class="footer-section">
-        <h3>Quick Links</h3>
-        <p><a href="about.html">About</a></p>
-        <p><a href="services.html">Services</a></p>
-        <p><a href="tools.html">Tools</a></p>
-        <p><a href="case-studies.html">Case Studies</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="contact.html">Get in Touch</a></p>
-        <p><a href="mailto:simon.dass.1996@gmail.com">simon.dass.1996@gmail.com</a></p>
-      </div>
+    <div class="footer-main">
+      <p class="footer-tagline">Learning Systems Studio</p>
+      <nav class="footer-links">
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="tools.html">Tools</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="contact.html">Get in Touch</a>
+      </nav>
+      <p class="footer-disclaimer">Independent practice · Not affiliated with any employer · Past work described with permission</p>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
-      <p class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html" style="color: rgba(255, 255, 255, 0.6);">Privacy, Terms & Data</a></p>
+      <p>
+        <span class="footer-copyright-full">© 2026 Simon Dass. All rights reserved. Website designed and developed by Simon Dass. | <a href="legal.html">Privacy, Terms & Data</a></span>
+        <span class="footer-copyright-mobile">© 2026 Simon Dass · <a href="legal.html">Privacy, Terms & Data</a></span>
+      </p>
     </div>
   </footer>
 
